@@ -12,7 +12,6 @@ from sklearn import metrics
 
 
 # Load data using panda
-
 data = panda.read_csv('./creditcard.csv')
 
 data.Class.value_counts()
@@ -28,5 +27,5 @@ logistic = linear_model.LogisticRegression(class_weight='balanced')
 logistic.fit(X_train, y_train)
 
 predictions = logistic.predict(X_test)
-
-print "the accuracy of this model is :"
+from sklearn.metrics import accuracy_score
+print "the accuracy of this model is :", accuracy_score(predictions, y_test)
